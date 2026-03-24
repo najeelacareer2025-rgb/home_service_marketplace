@@ -1,0 +1,12 @@
+{% extends 'marketplace/base.html' %}
+{% block title %}Register Staff{% endblock %}
+{% block content %}
+<div class="container mt-5">
+    <h2 class="fw-bold mb-4">Register New Staff</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Register</button>
+    </form>
+</div>
+{% endblock %}

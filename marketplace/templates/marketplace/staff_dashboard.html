@@ -1,0 +1,79 @@
+{% extends 'marketplace/base.html' %}
+{% block title %}Staff Dashboard{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+
+    <!-- Welcome Header -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="fw-bold">Welcome, {{ user.username }} (Staff)</h2>
+        <span class="badge bg-secondary fs-6">Staff Panel</span>
+    </div>
+
+    <!-- Services Assigned -->
+    <h4 class="fw-bold mt-4">My Services</h4>
+    <div class="table-responsive mb-4">
+        <table class="table table-striped table-hover shadow-sm">
+            <thead class="table-dark">
+                <tr>
+                    <th>Service</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for service in services %}
+                <tr>
+                    <td>{{ service.name }}</td>
+                    <td>₹{{ service.price }}</td>
+                </tr>
+                {% empty %}
+                <tr><td colspan="2" class="text-center">No services assigned</td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+<!-- Bookings Assigned -->
+<h4 class="fw-bold mt-4">My Bookings</h4>
+<div class="table-responsive">
+    <table class="table table-bordered shadow-sm">
+        <thead class="table-light">
+            <tr>
+                <th>Customer</th>
+                <th>Service</th>
+                <th>Date</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for booking in bookings %}
+            <tr>
+                <td>{{ booking.customer.username }}</td>
+                <td>{{ booking.service.name }}</td>
+                <td>{{ booking.date }}</td>
+                <td>
+                    <span class="badge 
+                        {% if booking.status == 'Completed' %} bg-success 
+                        {% elif booking.status == 'Cancelled' %} bg-danger 
+                        {% else %} bg-warning text-dark {% endif %}">
+                        {{ booking.status|default:"Pending" }}
+                    </span>
+                </td>
+                <td>
+                    <a href="{% url 'staff_update_booking_status' booking.id 'Completed' %}" class="btn btn-sm btn-success me-2">
+                        Complete
+                    </a>
+                    <a href="{% url 'staff_update_booking_status' booking.id 'Cancelled' %}" class="btn btn-sm btn-danger">
+                        Cancel
+                    </a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr><td colspan="5" class="text-center">No bookings assigned</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

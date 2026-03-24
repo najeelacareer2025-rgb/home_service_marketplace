@@ -1,0 +1,126 @@
+{% extends 'marketplace/base.html' %}
+{% load static %}
+
+{% block title %}All Categories{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h4 class="fw-bold mb-0">Categories</h4>
+        <a href="{% url 'home' %}" class="btn btn-outline-primary btn-sm rounded-pill">Back to Home</a>
+    </div>
+
+    <div class="row text-center g-4">
+        <!-- Plumber -->
+        <div class="col-4 col-md-3">
+            <a href="{% url 'category_detail' 'plumber' %}" class="text-decoration-none text-dark">
+                <div class="category-circle shadow-sm mx-auto">
+                    <img src="{% static 'marketplace/images/plumbing.png' %}" alt="Plumber">
+                </div>
+                <h6 class="fw-bold mt-2">Plumber</h6>
+                <p class="text-muted small">Leaks, pipes, installations</p>
+            </a>
+        </div>
+
+        <!-- Smart Home -->
+        <div class="col-4 col-md-3">
+            <a href="{% url 'category_detail' 'smart-home' %}" class="text-decoration-none text-dark">
+                <div class="category-circle shadow-sm mx-auto">
+                    <img src="{% static 'marketplace/images/smart_home.png' %}" alt="Smart Home">
+                </div>
+                <h6 class="fw-bold mt-2">Smart Home</h6>
+                <p class="text-muted small">IoT devices, automation</p>
+            </a>
+        </div>
+
+        <!-- Electrician -->
+        <div class="col-4 col-md-3">
+            <a href="{% url 'category_detail' 'electrician' %}" class="text-decoration-none text-dark">
+                <div class="category-circle shadow-sm mx-auto">
+                    <img src="{% static 'marketplace/images/electrician.png' %}" alt="Electrician">
+                </div>
+                <h6 class="fw-bold mt-2">Electrician</h6>
+                <p class="text-muted small">Installations, repair & maintenance</p>
+            </a>
+        </div>
+
+        <!-- Cleaning -->
+        <div class="col-4 col-md-3">
+            <a href="{% url 'category_detail' 'cleaning' %}" class="text-decoration-none text-dark">
+                <div class="category-circle shadow-sm mx-auto">
+                    <img src="{% static 'marketplace/images/cleaning.png' %}" alt="Cleaning">
+                </div>
+                <h6 class="fw-bold mt-2">Cleaning</h6>
+                <p class="text-muted small">Indoor, outdoor & bathroom cleaning</p>
+            </a>
+        </div>
+
+        <!-- Carpenter -->
+        <div class="col-4 col-md-3">
+            <a href="{% url 'category_detail' 'carpenter' %}" class="text-decoration-none text-dark">
+                <div class="category-circle shadow-sm mx-auto">
+                    <img src="{% static 'marketplace/images/carpenter.png' %}" alt="Carpenter">
+                </div>
+                <h6 class="fw-bold mt-2">Carpenter</h6>
+                <p class="text-muted small">Furniture, fittings, repairs</p>
+            </a>
+        </div>
+
+        <!-- Painter -->
+        <div class="col-4 col-md-3">
+            <a href="{% url 'category_detail' 'painter' %}" class="text-decoration-none text-dark">
+                <div class="category-circle shadow-sm mx-auto">
+                    <img src="{% static 'marketplace/images/painting.png' %}" alt="Painter">
+                </div>
+                <h6 class="fw-bold mt-2">Painter</h6>
+                <p class="text-muted small">Walls, interiors, touch-ups</p>
+            </a>
+        </div>
+
+        <!-- Pest Control -->
+        <div class="col-4 col-md-3">
+            <a href="{% url 'category_detail' 'pest-control' %}" class="text-decoration-none text-dark">
+                <div class="category-circle shadow-sm mx-auto">
+                    <img src="{% static 'marketplace/images/Pest Control.png' %}" alt="Pest Control">
+                </div>
+                <h6 class="fw-bold mt-2">Pest Control</h6>
+                <p class="text-muted small">Gardening, planting, pest control</p>
+            </a>
+        </div>
+
+        <!-- AC Repair -->
+        <div class="col-4 col-md-3">
+            <a href="{% url 'category_detail' 'ac-repair' %}" class="text-decoration-none text-dark">
+                <div class="category-circle shadow-sm mx-auto">
+                    <img src="{% static 'marketplace/images/ac_repair.png' %}" alt="AC Repair">
+                </div>
+                <h6 class="fw-bold mt-2">AC Repair</h6>
+                <p class="text-muted small">Installations, repair & maintenance</p>
+            </a>
+        </div>
+
+        <!-- Salon -->
+        <div class="col-4 col-md-3">
+            <a href="{% url 'category_detail' 'salon' %}" class="text-decoration-none text-dark">
+                <div class="category-circle shadow-sm mx-auto">
+                    <img src="{% static 'marketplace/images/salon.png' %}" alt="Salon">
+                </div>
+                <h6 class="fw-bold mt-2">Salon</h6>
+                <p class="text-muted small">Cutting, styling, treatments</p>
+            </a>
+        </div>
+
+        <!-- Security -->
+        <div class="col-4 col-md-3">
+            <a href="{% url 'category_detail' 'security' %}" class="text-decoration-none text-dark">
+                <div class="category-circle shadow-sm mx-auto">
+                    <img src="{% static 'marketplace/images/security.png' %}" alt="Security">
+                </div>
+                <h6 class="fw-bold mt-2">Security</h6>
+                <p class="text-muted small">CCTV installations, repair & maintenance</p>
+            </a>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,85 @@
+{% extends 'marketplace/base.html' %}
+{% load static %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="bg-light py-5 text-center">
+    <div class="container">
+        <img src="{% static 'marketplace/images/logo.png' %}" alt="Logo" style="height:80px;" class="mb-3">
+        {% if user.is_authenticated %}
+            <h2 class="fw-bold">Hello {{ user.username }}!</h2>
+            <p class="lead">Welcome back to Urban Home Services</p>
+        {% else %}
+            <h2 class="fw-bold">Hello User!</h2>
+            <p class="lead">Welcome to Urban Home Services</p>
+            <p class="lead">Signup For Better Experience</p>
+            <a href="{% url 'register' %}" class="btn btn-primary btn-lg">SIGNUP</a>
+            <p class="mt-2">Already have an account? <a href="{% url 'login' %}">Sign In</a></p>
+        {% endif %}
+    </div>
+</section>
+
+<!-- Popular Services -->
+<section class="container mt-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h3 class="fw-bold">Popular Services</h3>
+        <a href="{% url 'services' %}" class="btn btn-outline-primary btn-sm">View All</a>
+    </div>
+
+    <!-- Scrollable Catalogue -->
+    <div class="overflow-auto">
+        <div class="d-flex flex-row">
+            <a href="{% url 'service_detail' 2 %}" class="text-decoration-none">
+                <div class="service-card text-center p-3 me-3 shadow-sm rounded">
+                    <img src="{% static 'marketplace/images/plumbing.png' %}" alt="Plumber" style="height:60px;">
+                    <p class="fw-semibold mt-2 text-dark">Plumber</p>
+                </div>
+            </a>
+            <a href="{% url 'service_detail' 9 %}" class="text-decoration-none">
+                <div class="service-card text-center p-3 me-3 shadow-sm rounded">
+                    <img src="{% static 'marketplace/images/carpenter.png' %}" alt="Carpenter" style="height:60px;">
+                    <p class="fw-semibold mt-2 text-dark">Carpenter</p>
+                </div>
+            </a>
+            <a href="{% url 'service_detail' 11 %}" class="text-decoration-none">
+                <div class="service-card text-center p-3 me-3 shadow-sm rounded">
+                    <img src="{% static 'marketplace/images/painting.png' %}" alt="Painting" style="height:60px;">
+                    <p class="fw-semibold mt-2 text-dark">Painting</p>
+                </div>
+            </a>
+            <a href="{% url 'service_detail' 17 %}" class="text-decoration-none">
+                <div class="service-card text-center p-3 me-3 shadow-sm rounded">
+                    <img src="{% static 'marketplace/images/salon.png' %}" alt="Salon" style="height:60px;">
+                    <p class="fw-semibold mt-2 text-dark">Salon</p>
+                </div>
+            </a>
+            <a href="{% url 'service_detail' 4 %}" class="text-decoration-none">
+                <div class="service-card text-center p-3 me-3 shadow-sm rounded">
+                    <img src="{% static 'marketplace/images/smart_home.png' %}" alt="Smart Home" style="height:60px;">
+                    <p class="fw-semibold mt-2 text-dark">Smart Home</p>
+                </div>
+            </a>
+            <a href="{% url 'service_detail' 15 %}" class="text-decoration-none">
+                <div class="service-card text-center p-3 me-3 shadow-sm rounded">
+                    <img src="{% static 'marketplace/images/ac_repair.png' %}" alt="AC Repair" style="height:60px;">
+                    <p class="fw-semibold mt-2 text-dark">AC Repair</p>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
+
+
+<!-- Testimonials (Optional) -->
+<section class="bg-light py-5 mt-5">
+    <div class="container text-center">
+        <h3 class="fw-bold mb-4">What Our Customers Say</h3>
+        <blockquote class="blockquote">
+            <p>"Urban Home Services made booking a plumber so easy and reliable!"</p>
+            <footer class="blockquote-footer">A Happy Customer</footer>
+        </blockquote>
+    </div>
+</section>
+{% endblock %}

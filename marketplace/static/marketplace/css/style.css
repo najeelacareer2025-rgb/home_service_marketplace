@@ -1,0 +1,122 @@
+/* General body styling */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+/* Navbar */
+.navbar {
+    padding: 0.8rem 1rem;
+}
+.navbar-brand img {
+    margin-right: 8px;
+}
+.nav-link {
+    transition: color 0.3s ease;
+}
+.nav-link:hover {
+    color: #0d6efd; /* Bootstrap primary color */
+}
+
+/* Hero Section */
+section.bg-light {
+    background: linear-gradient(135deg, #e9f2ff, #f8f9fa);
+}
+section.bg-light h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+section.bg-light .btn-primary {
+    padding: 0.6rem 1.5rem;
+    font-size: 1.1rem;
+    border-radius: 30px;
+    transition: transform 0.2s ease;
+}
+section.bg-light .btn-primary:hover {
+    transform: scale(1.05);
+}
+
+/* Service Cards */
+.service-card {
+    width: 140px;
+    min-height: 140px;
+    background-color: #fff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+.service-card img {
+    transition: transform 0.3s ease;
+}
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+.service-card:hover img {
+    transform: scale(1.1);
+}
+
+/* Testimonials */
+blockquote {
+    font-size: 1.1rem;
+    font-style: italic;
+    color: #555;
+}
+blockquote-footer {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: #888;
+}
+
+/* Footer */
+footer {
+    background-color: #f1f1f1;
+    font-size: 0.9rem;
+    color: #555;
+}
+.carousel-item img {
+  height: 500px; /* fixed height */
+  object-fit: cover;
+}
+.category-circle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: #f8f9fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.category-circle img {
+  width: 60%;
+  height: 60%;
+  object-fit: contain;
+}
+.category-circle:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+.category-card img {
+  border-radius: 50%;
+  background: #f8f9fa;
+  padding: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.category-card img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+
+.card-img-top {
+  height: 180px;
+  object-fit: cover;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+
+

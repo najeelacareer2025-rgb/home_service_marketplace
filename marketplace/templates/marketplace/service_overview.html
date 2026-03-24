@@ -1,0 +1,41 @@
+{% extends 'marketplace/base.html' %}
+{% block title %}Manage Services{% endblock %}
+
+{% block content %}
+    <!-- Services Overview -->
+    <h4 class="fw-bold mt-4">Services Overview</h4>
+    <div class="table-responsive">
+        <table class="table table-striped table-hover shadow-sm">
+            <thead class="table-dark">
+                <tr>
+                    <th>Service</th>
+                    <th>Price</th>
+                    <th>Provider</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for service in services %}
+                <tr>
+                    <td>{{ service.name }}</td>
+                    <td>₹{{ service.price }}</td>
+                    <td>{{ service.provider }}</td>
+                    <td>
+                        <a href="{% url 'edit_service' service.id %}" class="btn btn-sm btn-warning me-2">
+                            <i class="bi bi-pencil"></i> Edit
+                        </a>
+                        <a href="{% url 'delete_service' service.id %}" class="btn btn-sm btn-danger">
+                            <i class="bi bi-trash"></i> Delete
+                        </a>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr><td colspan="4" class="text-center">No services available</td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <a href="{% url 'create_service' %}" class="btn btn-success me-2">
+        <i class="bi bi-plus-circle"></i> Add New Service
+    </a>
+{% endblock %}

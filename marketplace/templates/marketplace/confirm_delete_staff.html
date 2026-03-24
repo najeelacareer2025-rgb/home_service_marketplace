@@ -1,0 +1,19 @@
+{% extends 'marketplace/base.html' %}
+{% block title %}Confirm Delete{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="alert alert-danger shadow-sm">
+        <h4 class="fw-bold">Are you sure?</h4>
+        <p>You are about to delete staff member <strong>{{ staff.username }}</strong> ({{ staff.email }}).</p>
+        <p>This action cannot be undone.</p>
+    </div>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">
+            <i class="bi bi-trash"></i> Yes, Delete
+        </button>
+        <a href="{% url 'admin_dashboard' %}" class="btn btn-secondary ms-2">Cancel</a>
+    </form>
+</div>
+{% endblock %}

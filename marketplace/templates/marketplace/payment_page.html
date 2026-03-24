@@ -1,0 +1,28 @@
+{% extends 'marketplace/base.html' %}
+{% load static %}
+
+{% block title %}Make Payment{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="mb-4">Payment Page</h2>
+
+    <!-- Booking Summary -->
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <h4 class="card-title">Service: {{ booking.service.name }}</h4>
+            <p class="card-text">Amount to Pay: ₹{{ booking.service.price }}</p>
+            <p class="card-text">Provider: {{ booking.service.provider.username }}</p>
+            <p class="card-text">Date: {{ booking.date }}</p>
+
+            <!-- Demo Payment Button -->
+            <form method="post" action="{% url 'payment_success' %}">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-success mt-3">
+                    💳 Pay Now (Demo)
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

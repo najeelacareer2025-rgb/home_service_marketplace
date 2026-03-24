@@ -1,0 +1,44 @@
+{% extends 'marketplace/base.html' %}
+{% load static %}
+
+{% block title %}Booking Details{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="mb-4">Booking Details</h2>
+
+    <!-- Success Alert -->
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Success:</strong> Your booking has been confirmed successfully!
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+
+    <!-- Booking Card -->
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">{{ booking.service.name }}</h5>
+            <p class="card-text">{{ booking.service.description }}</p>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"><strong>Date:</strong> {{ booking.date }}</li>
+                <li class="list-group-item"><strong>Customer:</strong> {{ booking.customer.username }}</li>
+                <li class="list-group-item"><strong>Provider:</strong> {{ booking.service.provider.username }}</li>
+                <li class="list-group-item"><strong>Price:</strong> ₹{{ booking.service.price }}</li>
+            </ul>
+
+          <!-- Make Payment Button -->
+<form method="post" action="{% url 'make_payment' booking.id %}">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-success mt-3">
+        💳 Make Payment
+    </button>
+</form>
+
+<!-- Optional: Book Another Service -->
+<a href="{% url 'services' %}" class="btn btn-secondary mt-3">
+    + Book Another Service
+</a>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

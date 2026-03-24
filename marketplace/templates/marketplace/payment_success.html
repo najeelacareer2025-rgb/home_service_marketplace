@@ -1,0 +1,25 @@
+{% extends 'marketplace/base.html' %}
+{% block title %}Payment Successful{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Payment Successful:</strong> {{ message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <h4 class="card-title">Thank You!</h4>
+            <p class="card-text">Your booking is now marked as paid (demo).</p>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"><strong>Transaction ID:</strong> {{ transaction_id }}</li>
+            </ul>
+
+            <a href="{% url 'customer_dashboard' %}" class="btn btn-primary mt-3">
+                ✔ Go to Dashboard
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

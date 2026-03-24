@@ -1,0 +1,39 @@
+{% extends 'marketplace/base.html' %}
+{% block title %}All Bookings{% endblock %}
+
+{% block content %}
+<h4 class="fw-bold mt-4">Bookings Overview</h4>
+<div class="table-responsive">
+    <table class="table table-bordered shadow-sm">
+        <thead class="table-light">
+            <tr>
+                <th>Customer</th>
+                <th>Service</th>
+                <th>Provider</th> <!-- New column -->
+                <th>Date</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for booking in bookings %}
+            <tr>
+                <td>{{ booking.customer.username }}</td>
+                <td>{{ booking.service.name }}</td>
+                <td>{{ booking.service.provider.username }}</td> <!-- Show provider -->
+                <td>{{ booking.date }}</td>
+                <td>
+                    <span class="badge 
+                        {% if booking.status == 'Completed' %} bg-success 
+                        {% elif booking.status == 'Cancelled' %} bg-danger 
+                        {% else %} bg-warning text-dark {% endif %}">
+                        {{ booking.status|default:"Pending" }}
+                    </span>
+                </td>
+            </tr>
+            {% empty %}
+            <tr><td colspan="5" class="text-center">No bookings yet</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'marketplace/base.html' %}
+{% block title %}Create Service{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="fw-bold mb-4">Add New Service</h2>
+    <form method="post" class="shadow-sm p-4 bg-light rounded">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label class="form-label">Service Name</label>
+            <input type="text" name="name" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Price</label>
+            <input type="number" name="price" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Provider</label>
+            <select name="provider" class="form-select">
+                <option value="">-- Select Staff --</option>
+                {% for staff in staff_users %}
+                <option value="{{ staff.id }}">{{ staff.username }} ({{ staff.email }})</option>
+                {% endfor %}
+            </select>
+        </div>
+        <button type="submit" class="btn btn-success">Create Service</button>
+        <a href="{% url 'admin_dashboard' %}" class="btn btn-secondary ms-2">Cancel</a>
+    </form>
+</div>
+{% endblock %}

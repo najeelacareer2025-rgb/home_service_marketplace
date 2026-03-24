@@ -1,0 +1,21 @@
+{% extends 'marketplace/base.html' %}
+{% block title %}Edit Staff{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="fw-bold mb-4">Edit Staff</h2>
+    <form method="post" class="shadow-sm p-4 bg-light rounded">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label class="form-label">Username</label>
+            <input type="text" name="username" value="{{ staff.username }}" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input type="email" name="email" value="{{ staff.email }}" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-success">Save Changes</button>
+        <a href="{% url 'admin_dashboard' %}" class="btn btn-secondary ms-2">Cancel</a>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,92 @@
+[
+  {
+    "model": "marketplace.category",
+    "pk": 1,
+    "fields": {
+      "name": "Plumber",
+      "slug": "plumber",
+      "description": "Pipe repairs, leak fixes, installations"
+    }
+  },
+  {
+    "model": "marketplace.category",
+    "pk": 2,
+    "fields": {
+      "name": "Electrician",
+      "slug": "electrician",
+      "description": "Wiring, lighting, appliance repair"
+    }
+  },
+  {
+    "model": "marketplace.category",
+    "pk": 3,
+    "fields": {
+      "name": "Cleaning",
+      "slug": "cleaning",
+      "description": "Home, office, deep cleaning services"
+    }
+  },
+  {
+    "model": "marketplace.category",
+    "pk": 4,
+    "fields": {
+      "name": "Carpenter",
+      "slug": "carpenter",
+      "description": "Furniture repair, fittings, installations"
+    }
+  },
+  {
+    "model": "marketplace.category",
+    "pk": 5,
+    "fields": {
+      "name": "Smart Home",
+      "slug": "smart-home",
+      "description": "IoT devices, automation, smart setups"
+    }
+  },
+  {
+    "model": "marketplace.category",
+    "pk": 6,
+    "fields": {
+      "name": "Painter",
+      "slug": "painter",
+      "description": "Walls, interiors, touch-ups"
+    }
+  },
+  {
+    "model": "marketplace.category",
+    "pk": 7,
+    "fields": {
+      "name": "Pest Control",
+      "slug": "pest-control",
+      "description": "Safe pest removal and prevention"
+    }
+  },
+  {
+    "model": "marketplace.category",
+    "pk": 8,
+    "fields": {
+      "name": "AC Repair",
+      "slug": "ac-repair",
+      "description": "Cooling solutions, repair & maintenance"
+    }
+  },
+  {
+    "model": "marketplace.category",
+    "pk": 9,
+    "fields": {
+      "name": "Salon",
+      "slug": "salon",
+      "description": "Beauty, grooming, and styling"
+    }
+  },
+  {
+    "model": "marketplace.category",
+    "pk": 10,
+    "fields": {
+      "name": "Security",
+      "slug": "security",
+      "description": "Home security systems and services"
+    }
+  }
+]

@@ -1,0 +1,222 @@
+[
+  {
+    "model": "marketplace.service",
+    "pk": 1,
+    "fields": {
+      "category": 1,
+      "name": "Pipe Installation",
+      "description": "Professional installation of water pipes.",
+      "price": "500.00",
+      "provider": 1
+    }
+  },
+  {
+    "model": "marketplace.service",
+    "pk": 2,
+    "fields": {
+      "category": 1,
+      "name": "Leak Repair",
+      "description": "Fixing leaks in bathrooms and kitchens.",
+      "price": "300.00",
+      "provider": 1
+    }
+  },
+  {
+    "model": "marketplace.service",
+    "pk": 3,
+    "fields": {
+      "category": 2,
+      "name": "Smart Lighting Setup",
+      "description": "Install and configure smart bulbs and switches.",
+      "price": "1200.00",
+      "provider": 1
+    }
+  },
+  {
+    "model": "marketplace.service",
+    "pk": 4,
+    "fields": {
+      "category": 2,
+      "name": "Home Automation Hub",
+      "description": "Setup IoT hub for smart devices.",
+      "price": "2500.00",
+      "provider": 1
+    }
+  },
+  {
+    "model": "marketplace.service",
+    "pk": 5,
+    "fields": {
+      "category": 3,
+      "name": "Wiring Installation",
+      "description": "Complete electrical wiring for homes.",
+      "price": "2000.00",
+      "provider": 1
+    }
+  },
+  {
+    "model": "marketplace.service",
+    "pk": 6,
+    "fields": {
+      "category": 3,
+      "name": "Appliance Repair",
+      "description": "Repair of household electrical appliances.",
+      "price": "800.00",
+      "provider": 1
+    }
+  },
+  {
+    "model": "marketplace.service",
+    "pk": 7,
+    "fields": {
+      "category": 4,
+      "name": "Bathroom Cleaning",
+      "description": "Deep cleaning of bathrooms and tiles.",
+      "price": "600.00",
+      "provider": 1
+    }
+  },
+  {
+    "model": "marketplace.service",
+    "pk": 8,
+    "fields": {
+      "category": 4,
+      "name": "Kitchen Cleaning",
+      "description": "Grease and stain removal from kitchen surfaces.",
+      "price": "700.00",
+      "provider": 1
+    }
+  },
+  {
+    "model": "marketplace.service",
+    "pk": 9,
+    "fields": {
+      "category": 5,
+      "name": "Furniture Assembly",
+      "description": "Assembly of wooden furniture.",
+      "price": "900.00",
+      "provider": 1
+    }
+  },
+  {
+    "model": "marketplace.service",
+    "pk": 10,
+    "fields": {
+      "category": 5,
+      "name": "Door Repair",
+      "description": "Repair of wooden doors and hinges.",
+      "price": "400.00",
+      "provider": 1
+    }
+  },
+  {
+    "model": "marketplace.service",
+    "pk": 11,
+    "fields": {
+      "category": 6,
+      "name": "Interior Painting",
+      "description": "Painting of walls and ceilings.",
+      "price": "1500.00",
+      "provider": 1
+    }
+  },
+  {
+    "model": "marketplace.service",
+    "pk": 12,
+    "fields": {
+      "category": 6,
+      "name": "Exterior Painting",
+      "description": "Painting of exterior walls.",
+      "price": "2500.00",
+      "provider": 1
+    }
+  },
+  {
+    "model": "marketplace.service",
+    "pk": 13,
+    "fields": {
+      "category": 7,
+      "name": "Pest Control Spray",
+      "description": "Chemical spraying for pest removal.",
+      "price": "1000.00",
+      "provider": 1
+    }
+  },
+  {
+    "model": "marketplace.service",
+    "pk": 14,
+    "fields": {
+      "category": 7,
+      "name": "Termite Treatment",
+      "description": "Treatment for termite infestations.",
+      "price": "1800.00",
+      "provider": 1
+    }
+  },
+  {
+    "model": "marketplace.service",
+    "pk": 15,
+    "fields": {
+      "category": 8,
+      "name": "AC Installation",
+      "description": "Installation of split and window AC units.",
+      "price": "2200.00",
+      "provider": 1
+    }
+  },
+  {
+    "model": "marketplace.service",
+    "pk": 16,
+    "fields": {
+      "category": 8,
+      "name": "AC Gas Refill",
+      "description": "Refilling AC refrigerant gas.",
+      "price": "1500.00",
+      "provider": 1
+    }
+  },
+  {
+    "model": "marketplace.service",
+    "pk": 17,
+    "fields": {
+      "category": 9,
+      "name": "Haircut",
+      "description": "Professional haircut and styling.",
+      "price": "300.00",
+      "provider": 1
+    }
+  },
+  {
+    "model": "marketplace.service",
+    "pk": 18,
+    "fields": {
+      "category": 9,
+      "name": "Facial Treatment",
+      "description": "Skin care and facial treatment.",
+      "price": "800.00",
+      "provider": 1
+    }
+  },
+  {
+    "model": "marketplace.service",
+    "pk": 19,
+    "fields": {
+      "category": 10,
+      "name": "CCTV Installation",
+      "description": "Installation of CCTV cameras.",
+      "price": "3000.00",
+      "provider": 1
+    }
+  },
+  {
+    "model": "marketplace.service",
+    "pk": 20,
+    "fields": {
+      "category": 10,
+      "name": "Alarm System Setup",
+      "description": "Setup of home alarm systems.",
+      "price": "3500.00",
+      "provider": 1
+    }
+  }
+]

@@ -1,0 +1,35 @@
+{% extends 'marketplace/base.html' %}
+{% load static %}
+
+{% block title %}Booking Confirmation{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+
+    <!-- Success Alert -->
+    {% if success_message %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Success:</strong> {{ success_message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+    {% endif %}
+
+    <!-- Booking Summary -->
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <h4 class="card-title">Booking Confirmed!</h4>
+            <p class="card-text">Here are your booking details:</p>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"><strong>Service:</strong> {{ booking.service.name }}</li>
+                <li class="list-group-item"><strong>Date:</strong> {{ booking.date }}</li>
+                <li class="list-group-item"><strong>Provider:</strong> {{ booking.service.provider.username }}</li>
+                <li class="list-group-item"><strong>Price:</strong> ₹{{ booking.service.price }}</li>
+            </ul>
+            <a href="{% url 'customer_dashboard' %}" class="btn btn-secondary mt-3">
+                ← Back to Dashboard
+            </a>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

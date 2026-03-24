@@ -1,0 +1,152 @@
+{% extends 'marketplace/base.html' %}
+{% load static %}
+{% block title %}All Categories{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="fw-bold mb-4 text-center">Browse Categories</h2>
+    <div class="row g-4">
+
+        <!-- Plumber -->
+        <div class="col-6 col-md-3">
+            <a href="{% url 'category_detail' 'plumber' %}" class="text-decoration-none">
+                <div class="card category-card shadow-sm h-100 text-center">
+                    <div class="card-body">
+                        <img src="{% static 'marketplace/images/plumbing.png' %}" 
+                             alt="Plumber" class="img-fluid rounded-circle mb-2" style="width:80px; height:80px; object-fit:contain;">
+                        <h6 class="fw-bold">Plumber</h6>
+                        <p class="text-muted small">Leaks, pipes, installations</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!-- Smart Home -->
+        <div class="col-6 col-md-3">
+            <a href="{% url 'category_detail' 'smart-home' %}" class="text-decoration-none">
+                <div class="card category-card shadow-sm h-100 text-center">
+                    <div class="card-body">
+                        <img src="{% static 'marketplace/images/smart_home.webp' %}" 
+                             alt="Smart Home" class="img-fluid rounded-circle mb-2" style="width:80px; height:80px; object-fit:contain;">
+                        <h6 class="fw-bold">Smart Home</h6>
+                        <p class="text-muted small">IoT devices, automation</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!-- Electrician -->
+        <div class="col-6 col-md-3">
+            <a href="{% url 'category_detail' 'electrician' %}" class="text-decoration-none">
+                <div class="card category-card shadow-sm h-100 text-center">
+                    <div class="card-body">
+                        <img src="{% static 'marketplace/images/electrician.jpg' %}" 
+                             alt="Electrician" class="img-fluid rounded-circle mb-2" style="width:80px; height:80px; object-fit:contain;">
+                        <h6 class="fw-bold">Electrician</h6>
+                        <p class="text-muted small">Installations, repair & maintenance</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!-- Cleaning -->
+        <div class="col-6 col-md-3">
+            <a href="{% url 'category_detail' 'cleaning' %}" class="text-decoration-none">
+                <div class="card category-card shadow-sm h-100 text-center">
+                    <div class="card-body">
+                        <img src="{% static 'marketplace/images/cleaning.png' %}" 
+                             alt="Cleaning" class="img-fluid rounded-circle mb-2" style="width:80px; height:80px; object-fit:contain;">
+                        <h6 class="fw-bold">Cleaning</h6>
+                        <p class="text-muted small">Indoor, outdoor & bathroom cleaning</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!-- Carpenter -->
+        <div class="col-6 col-md-3">
+            <a href="{% url 'category_detail' 'carpenter' %}" class="text-decoration-none">
+                <div class="card category-card shadow-sm h-100 text-center">
+                    <div class="card-body">
+                        <img src="{% static 'marketplace/images/carpenter.jpg' %}" 
+                             alt="Carpenter" class="img-fluid rounded-circle mb-2" style="width:80px; height:80px; object-fit:contain;">
+                        <h6 class="fw-bold">Carpenter</h6>
+                        <p class="text-muted small">Furniture, fittings, repairs</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!-- Painter -->
+        <div class="col-6 col-md-3">
+            <a href="{% url 'category_detail' 'painter' %}" class="text-decoration-none">
+                <div class="card category-card shadow-sm h-100 text-center">
+                    <div class="card-body">
+                        <img src="{% static 'marketplace/images/painter.png' %}" 
+                             alt="Painter" class="img-fluid rounded-circle mb-2" style="width:80px; height:80px; object-fit:contain;">
+                        <h6 class="fw-bold">Painter</h6>
+                        <p class="text-muted small">Walls, interiors, touch-ups</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!-- Pest Control -->
+        <div class="col-6 col-md-3">
+            <a href="{% url 'category_detail' 'pest-control' %}" class="text-decoration-none">
+                <div class="card category-card shadow-sm h-100 text-center">
+                    <div class="card-body">
+                        <img src="{% static 'marketplace/images/pest_control.png' %}" 
+                             alt="Pest Control" class="img-fluid rounded-circle mb-2" style="width:80px; height:80px; object-fit:contain;">
+                        <h6 class="fw-bold">Pest Control</h6>
+                        <p class="text-muted small">Gardening, planting, pest control</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!-- AC Repair -->
+        <div class="col-6 col-md-3">
+            <a href="{% url 'category_detail' 'ac-repair' %}" class="text-decoration-none">
+                <div class="card category-card shadow-sm h-100 text-center">
+                    <div class="card-body">
+                        <img src="{% static 'marketplace/images/ac_repair.jpg' %}" 
+                             alt="AC Repair" class="img-fluid rounded-circle mb-2" style="width:80px; height:80px; object-fit:contain;">
+                        <h6 class="fw-bold">AC Repair</h6>
+                        <p class="text-muted small">Installations, repair & maintenance</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!-- Salon -->
+        <div class="col-6 col-md-3">
+            <a href="{% url 'category_detail' 'salon' %}" class="text-decoration-none">
+                <div class="card category-card shadow-sm h-100 text-center">
+                    <div class="card-body">
+                        <img src="{% static 'marketplace/images/salon.png' %}" 
+                             alt="Salon" class="img-fluid rounded-circle mb-2" style="width:80px; height:80px; object-fit:contain;">
+                        <h6 class="fw-bold">Salon</h6>
+                        <p class="text-muted small">Cutting, styling, treatments</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!-- Security -->
+        <div class="col-6 col-md-3">
+            <a href="{% url 'category_detail' 'security' %}" class="text-decoration-none">
+                <div class="card category-card shadow-sm h-100 text-center">
+                    <div class="card-body">
+                        <img src="{% static 'marketplace/images/security.webp' %}" 
+                             alt="Security" class="img-fluid rounded-circle mb-2" style="width:80px; height:80px; object-fit:contain;">
+                        <h6 class="fw-bold">Security</h6>
+                        <p class="text-muted small">CCTV installations, repair & maintenance</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

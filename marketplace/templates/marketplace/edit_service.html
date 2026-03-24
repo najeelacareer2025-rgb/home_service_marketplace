@@ -1,0 +1,33 @@
+{% extends 'marketplace/base.html' %}
+{% block title %}Edit Service{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="fw-bold mb-4">Edit Service</h2>
+    <form method="post" class="shadow-sm p-4 bg-light rounded">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label class="form-label">Service Name</label>
+            <input type="text" name="name" value="{{ service.name }}" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Price</label>
+            <input type="number" name="price" value="{{ service.price }}" class="form-control">
+        </div>
+        <div class="mb-3">
+    <label class="form-label">Provider</label>
+    <select name="provider" class="form-select">
+        {% for staff in staff_users %}
+        <option value="{{ staff.id }}" {% if service.provider == staff %}selected{% endif %}>
+            {{ staff.username }} ({{ staff.email }})
+        </option>
+        {% endfor %}
+    </select>
+</div>
+
+        <button type="submit" class="btn btn-success">Save Changes</button>
+        <a href="{% url 'admin_dashboard' %}" class="btn btn-secondary ms-2">Cancel</a>
+    </form>
+</div>
+{% endblock %}
+
