@@ -1,0 +1,25 @@
+# Virtual environment
+env/
+venv/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# SQLite database
+*.sqlite3
+
+# Logs
+*.log
+
+# IDE/editor settings
+.idea/
+.vscode/
+
+# Static files (collected)
+staticfiles/
+
+# Node modules (if you use npm/yarn)
+node_modules/
