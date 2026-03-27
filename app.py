@@ -1,10 +1,6 @@
-import gradio as gr
+import os
+from django.core.wsgi import get_wsgi_application
 
-def hello(name):
-    return f"Hello {name}, welcome to my Home Services Marketplace!"
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "home_service.settings")
 
-demo = gr.Interface(fn=hello, inputs="text", outputs="text")
-
-if __name__ == "__main__":
-    demo.launch(share=True)
-
+application = get_wsgi_application()

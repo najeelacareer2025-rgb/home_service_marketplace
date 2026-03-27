@@ -1,3 +1,9 @@
+---
+title: home_service_marketplace
+app_file: app.py
+sdk: gradio
+sdk_version: 6.10.0
+---
 # 🏠 Home Service Marketplace
 
 A Django-based web application for booking and managing household services.  
