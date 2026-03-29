@@ -482,11 +482,22 @@ def edit_profile(request):
         form = ProfileForm(instance=request.user)
     return render(request, 'marketplace/edit_profile.html', {'form': form})
 
-
-import requests
+import os
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
-from .models import Service   
+from huggingface_hub import InferenceClient
+from .models import Service
+from dotenv import load_dotenv
+
+# Load environment variables from .env in project root
+load_dotenv(os.path.join(os.path.dirname(os.path.dirname(__file__)), '.env'))
+
+# Hugging Face setup
+HF_API_TOKEN = os.getenv("HF_TOKEN")   # safely loaded from .env
+HF_MODEL = "meta-llama/Llama-3.2-1B-Instruct"
+
+client = InferenceClient(model=HF_MODEL, token=HF_API_TOKEN)
+
 
 @csrf_exempt
 def chat_page(request):
@@ -494,39 +505,38 @@ def chat_page(request):
         request.session["chat_history"] = []
 
     if request.method == "POST":
-        user_message = request.POST.get("message", "")
+        user_message = request.POST.get("message", "").strip()
+        if user_message:
+            # Save user message
+            request.session["chat_history"].append({"sender": "user", "text": user_message})
 
-        
-        request.session["chat_history"].append({"sender": "user", "text": user_message})
+            # Build context from your Service model
+            services = Service.objects.all()
+            context = "\n".join([f"{s.name}: {s.description}" for s in services])
 
-       
-        services = Service.objects.all()
-        context = "\n".join([f"{s.name}: {s.description}" for s in services])
+            # Construct system + user messages
+            messages = [
+                {"role": "system", "content": f"You are an assistant for Urban Home Services. Available services:\n{context}\nAnswer based only on the services above."},
+                {"role": "user", "content": user_message},
+            ]
 
-        
-        prompt = f"""
-        You are an assistant for Urban Home Services.
-        Available services:
-        {context}
+            try:
+                # Hugging Face chat completion call
+                response_obj = client.chat_completion(
+                    model=HF_MODEL,
+                    messages=messages,
+                    max_tokens=300,
+                    stream=False,
+                )
 
-        User asked: {user_message}
-        Answer based only on the services above.
-        """
+                # Extract reply text
+                ai_reply = response_obj.choices[0].message.content
 
-        
-        response = requests.post(
-            "http://localhost:11434/api/generate",
-            json={"model": "llama3.2:1b", "prompt": prompt, "stream": False}
-        )
-        result = response.json()
-        ai_reply = result.get("response", "No reply")
+            except Exception as e:
+                ai_reply = f"Error: {str(e)}"
 
-       
-        request.session["chat_history"].append({"sender": "ai", "text": ai_reply})
-        request.session.modified = True
+            # Save AI reply
+            request.session["chat_history"].append({"sender": "ai", "text": ai_reply})
+            request.session.modified = True
 
     return render(request, "marketplace/chat.html", {"chat_history": request.session["chat_history"]})
-
-
-
-

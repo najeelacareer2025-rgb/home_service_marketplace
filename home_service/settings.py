@@ -11,6 +11,14 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
 from pathlib import Path
+import os
+from dotenv import load_dotenv
+
+# Load environment variables from .env in project root
+load_dotenv(os.path.join(os.path.dirname(os.path.dirname(__file__)), '.env'))
+
+HF_TOKEN = os.getenv("HF_TOKEN")
+
 from django.urls import reverse_lazy
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,9 +31,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-pc99!ogv7n!)ae@6a3l+qb)wjs73bww6kqrfxob8g1%hyct(@z'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['najeelacareer.pythonanywhere.com', 'localhost','127.0.0.1']
 
 
 # Application definition
@@ -100,8 +108,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-# Internationalization
-# https://docs.djangoproject.com/en/6.0/topics/i18n/
+
 
 LANGUAGE_CODE = 'en-us'
 
@@ -113,12 +120,14 @@ USE_TZ = True
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
 
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/6.0/howto/static-files/
+
 
 STATIC_URL = 'static/'
-STATICFILES_DIRS = [BASE_DIR / "static"]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+
 LOGIN_REDIRECT_URL = reverse_lazy('dashboard')
 LOGOUT_REDIRECT_URL = '/'
 MEDIA_URL = '/media/'
