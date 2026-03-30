@@ -33,7 +33,8 @@ SECRET_KEY = 'django-insecure-pc99!ogv7n!)ae@6a3l+qb)wjs73bww6kqrfxob8g1%hyct(@z
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['najeelacareer.pythonanywhere.com', 'localhost','127.0.0.1']
+ALLOWED_HOSTS = ["127.0.0.1", "localhost", "najeelacareer.pythonanywhere.com"]
+
 
 
 # Application definition
@@ -56,6 +57,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'marketplace.middleware.LoginRequiredMessageMiddleware',
 ]
 
 ROOT_URLCONF = 'home_service.urls'
@@ -127,7 +129,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
-
+LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = reverse_lazy('dashboard')
 LOGOUT_REDIRECT_URL = '/'
 MEDIA_URL = '/media/'

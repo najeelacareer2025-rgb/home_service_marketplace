@@ -21,7 +21,7 @@ from django.contrib import messages
 from django.contrib.auth import get_user_model
 from django.http import HttpResponseForbidden
 from django.urls import reverse
-
+from django.conf import settings
 from .models import Service, Booking
 from .forms import CustomerSignupForm, StaffSignupForm
 
@@ -30,6 +30,8 @@ User = get_user_model()
 
 def is_admin(user):
     return user.is_staff or user.is_superuser or user.role == 'admin'
+
+
 
 
 @login_required
@@ -100,17 +102,25 @@ def register_view(request):
 class RoleBasedLoginView(LoginView):
     template_name = 'marketplace/login.html'
 
+    def dispatch(self, request, *args, **kwargs):
+        # If user was redirected here because of @login_required
+        if 'next' in request.GET:
+            messages.info(request, "Please log in to continue booking your service.")
+        return super().dispatch(request, *args, **kwargs)
+
     def get_success_url(self):
         user = self.request.user
         if user.role == 'admin' or user.is_superuser:
             return reverse('admin_dashboard')
-        elif user.role == 'staff'or user.is_staff:
+        elif user.role == 'staff' or user.is_staff:
             return reverse('staff_dashboard')
         else:
             return reverse('customer_dashboard')
+
     def form_invalid(self, form):
-         messages.error(self.request, "Invalid username or password. Please try again.")
-         return super().form_invalid(form)
+        messages.error(self.request, "Invalid username or password. Please try again.")
+        return super().form_invalid(form)
+
 
 def role_required(role):
     def decorator(view_func):
@@ -120,6 +130,7 @@ def role_required(role):
             return view_func(request, *args, **kwargs)
         return wrapper
     return decorator
+
 
 
 
